@@ -2,11 +2,6 @@ const axios = require('axios')
 const Sentiment = require('sentiment')
 require('dotenv').config()
 
-const hello=(req,res)=>{
-    res.send("hello");
-};
-
-
 const positiveNews = (req, res) => {
     axios.get(`https://newsapi.org/v2/everything?domains=techradar.com,medicalnewstoday.com,businessinsider.com&sortBy=publishedAt&language=en&pageSize=16&apiKey=${process.env.NEWS_API_KEY}`)
     .then(response => {
@@ -132,7 +127,6 @@ const searchNews = (req, res) => {
 
 
 module.exports={
-    hello,
     positiveNews,
     allNews,
     searchNews
