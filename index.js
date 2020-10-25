@@ -11,6 +11,10 @@ app.use(bodyParser.json());
 
 const port = process.env.PORT || 3001;
 
+app.get('/',(req,res)=>{
+    res.send({message:'Server is up and running!'});
+})
+
 app.use("/", myRouter);
 
 app.use('*',(req,res)=>{
