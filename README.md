@@ -5,17 +5,6 @@
 <h4 align="center">Don't worry if you are too happy, you can search or view the normal news as well</h4>
 
 
-<div align="center">
-  <a href="https://travis-ci.org/kmartin21/good-news">
-    <img src="https://img.shields.io/travis/kmartin21/good-news/master.svg?style=flat-square"
-      alt="Build Status" />
-  </a>
-  <a href="http://badges.mit-license.org">
-    <img src="http://img.shields.io/:license-mit-blue.svg?style=flat-square"
-      alt="License" />
-  </a>
-</div>
-
 ## Basic Overview
 A full stack web app built with ReactJS, Express, and Node and our backbone Sentiment Analysis that displays a feed of positive news articles.<br>
 <br>
