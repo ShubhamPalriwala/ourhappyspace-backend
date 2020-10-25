@@ -13,7 +13,8 @@ You can search for specific news where in we will be showing you first all the p
 
 Bad news is everywhere and easy to find. Yes, problems should be exposed so they can be fixed but what about all of the great things going on currently? Our Happy Space is built to encourage people to find positivity in the world and give them something to look forward to after reading the news. It uses <a href="https://github.com/thisandagain/sentiment">sentiment</a> to analyze and filter negative news articles from News data provided by the <a href="https://newsapi.org/">News API</a>. 
 
-//app feed home ss
+
+![Logo](https://github.com/r-ush/ourhappyspace-frontend/blob/master/assets/ohs.png)
 <br>
 <br>
 
