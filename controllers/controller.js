@@ -7,8 +7,8 @@ const hello=(req,res)=>{
 };
 
 
-const topNews = (req, res) => {
-    axios.get(`https://newsapi.org/v2/everything?domains=techradar.com,medicalnewstoday.com,businessinsider.com&language=en&pageSize=100&apiKey=${process.env.NEWS_API_KEY}`)
+const positiveNews = (req, res) => {
+    axios.get(`https://newsapi.org/v2/everything?domains=techradar.com,medicalnewstoday.com,businessinsider.com&sortBy=publishedAt&language=en&pageSize=100&apiKey=${process.env.NEWS_API_KEY}`)
     .then(response => {
         const sentiment = new Sentiment()
         
@@ -45,7 +45,7 @@ const topNews = (req, res) => {
 
 const searchNews = (req, res) => {
     const topic=req.body.topic;
-    axios.get('https://newsapi.org/v2/everything?q='+topic+'&apiKey='+process.env.NEWS_API_KEY)
+    axios.get('https://newsapi.org/v2/everything?q='+topic+'&sortBy=publishedAt&language=en&apiKey='+process.env.NEWS_API_KEY)
     .then(response => {
         const sentiment = new Sentiment()
         
@@ -80,9 +80,43 @@ const searchNews = (req, res) => {
     })
 }
 
+const allNews= (req,res)=>{
+    axios.get(`https://newsapi.org/v2/everything?domains=techradar.com,medicalnewstoday.com,businessinsider.com&sortBy=publishedAt&language=en&pageSize=100&apiKey=${process.env.NEWS_API_KEY}`)
+    .then(response => {
+        
+        const allArticles = response.data.articles.filter(article => {
+            for (let field in article) {
+                if (field === 'title' && article[field] === null ||
+                    field === 'description' && article[field] === null ||
+                    field === 'url' && article[field] === null ||
+                    field === 'urlToImage' && article[field] === null
+                ) {
+                    return false
+                }
+            }
+
+            const content = article.title + " " + article.description
+            return content
+        })
+
+        const uniqueArticles = allArticles.filter((article, index) => {
+            return allArticles.map(articleObj => articleObj.title).indexOf(article.title) === index
+        })
+
+        res.status(200).json({
+            data: {
+                articles: uniqueArticles
+            }
+        })
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+};
 
 module.exports={
     hello,
-    topNews,
+    positiveNews,
+    allNews,
     searchNews
 }
