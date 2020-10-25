@@ -8,7 +8,7 @@ const hello=(req,res)=>{
 
 
 const positiveNews = (req, res) => {
-    axios.get(`https://newsapi.org/v2/everything?domains=techradar.com,medicalnewstoday.com,businessinsider.com&sortBy=publishedAt&language=en&pageSize=100&apiKey=${process.env.NEWS_API_KEY}`)
+    axios.get(`https://newsapi.org/v2/everything?domains=techradar.com,medicalnewstoday.com,businessinsider.com&sortBy=publishedAt&language=en&pageSize=16&apiKey=${process.env.NEWS_API_KEY}`)
     .then(response => {
         const sentiment = new Sentiment()
         
@@ -81,7 +81,7 @@ const searchNews = (req, res) => {
 }
 
 const allNews= (req,res)=>{
-    axios.get(`https://newsapi.org/v2/everything?domains=techradar.com,medicalnewstoday.com,businessinsider.com&sortBy=publishedAt&language=en&pageSize=100&apiKey=${process.env.NEWS_API_KEY}`)
+    axios.get(`https://newsapi.org/v2/top-headlines?country=in&language=en&sortBy=publishedAt&pageSize=16&apiKey=${process.env.NEWS_API_KEY}`)
     .then(response => {
         
         const allArticles = response.data.articles.filter(article => {
@@ -104,9 +104,7 @@ const allNews= (req,res)=>{
         })
 
         res.status(200).json({
-            data: {
-                articles: uniqueArticles
-            }
+            articles: uniqueArticles
         })
     })
     .catch(error => {
