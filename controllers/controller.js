@@ -32,7 +32,8 @@ const positiveNews = (req, res) => {
         })
     })
     .catch(error => {
-        res.status(500).send(error);
+        console.log(error);
+        res.status(500).send("Server Error");
     })
 }
 
@@ -64,7 +65,8 @@ const allNews= (req,res)=>{
         })
     })
     .catch(error => {
-        res.status(500).send(error);
+        console.log(error);
+        res.status(500).send("Server Error");
     })
 };
 
@@ -121,7 +123,8 @@ const searchNews = (req, res) => {
         })
     })
     .catch(error => {
-        res.status(500).send(error);
+        console.log(error);
+        res.status(500).send("Server Error");
     })
 }
 
