@@ -3,7 +3,7 @@ const Sentiment = require('sentiment')
 require('dotenv').config()
 
 const positiveNews = (req, res) => {
-    axios.get(`https://newsapi.org/v2/top-headlines?language=en&sortBy=publishedAt&apiKey=${process.env.NEWS_API_KEY}`)
+    axios.get(`https://newsapi.org/v2/top-headlines?language=in&sortBy=publishedAt&apiKey=${process.env.NEWS_API_KEY}`)
     .then(response => {
         const sentiment = new Sentiment()
         
