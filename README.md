@@ -1,4 +1,4 @@
-//logo image                                                                                                                             
+![Logo](https://github.com/ShubhamPalriwala/no-negativity-backend/blob/main/assets/flex.png)                                                                                                                        
 <h1 align="center">Our Happy Space</h1> 
 
 <h4 align="center">A feed of positive news stories, to brighten your day.</h4>
