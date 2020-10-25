@@ -89,7 +89,7 @@ const searchNews = (req, res) => {
 
             const content = article.title + " " + article.description
             const result = sentiment.analyze(content)
-            return result.score > 1
+            return result.score > 1.3
         })
 
         const positiveArticlesUnique = positiveArticles.filter((article, index) => {
