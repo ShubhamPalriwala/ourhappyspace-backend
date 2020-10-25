@@ -1,4 +1,4 @@
-![Logo](https://github.com/ShubhamPalriwala/no-negativity-backend/blob/main/assets/flex.png)                                                                                                                        
+![Logo](https://github.com/ShubhamPalriwala/ourhappyspace-backend/blob/main/assets/flex.png)                                                                                                                        
 <h1 align="center">Our Happy Space</h1> 
 
 <h4 align="center">A feed of positive news stories, to brighten your day.</h4>
@@ -21,9 +21,12 @@ Bad news is everywhere and easy to find. Yes, problems should be exposed so they
 Live on: https://ourhappy.space <br/>
 Backend: https://ourhappyspace.herokuapp.com <br/>
 Frontend: https://ohs.netlify.app <br/>
-
-
 <br>
+## Repositories
+[OurHappySpace Frontend](https://github.com/r-ush/ourhappyspace-frontend) <br/>
+[OurHappySpace Backend](https://github.com/ShubhamPalriwala/ourhappyspace-backend)
+
+
 <br>
 
 ## Built With

@@ -3,7 +3,7 @@ const Sentiment = require('sentiment')
 require('dotenv').config()
 
 const positiveNews = (req, res) => {
-    axios.get(`https://newsapi.org/v2/everything?domains=techradar.com,medicalnewstoday.com,businessinsider.com&sortBy=publishedAt&language=en&pageSize=16&apiKey=${process.env.NEWS_API_KEY}`)
+    axios.get(`https://newsapi.org/v2/top-headlines?language=en&sortBy=publishedAt&apiKey=${process.env.NEWS_API_KEY}`)
     .then(response => {
         const sentiment = new Sentiment()
         
@@ -20,7 +20,7 @@ const positiveNews = (req, res) => {
 
             const content = article.title + " " + article.description
             const result = sentiment.analyze(content)
-            return result.score > 1
+            return result.score > 1.2
         })
 
         const positiveArticlesUnique = positiveArticles.filter((article, index) => {
@@ -38,7 +38,7 @@ const positiveNews = (req, res) => {
 }
 
 const allNews= (req,res)=>{
-    axios.get(`https://newsapi.org/v2/top-headlines?country=in&language=en&sortBy=publishedAt&pageSize=16&apiKey=${process.env.NEWS_API_KEY}`)
+    axios.get(`https://newsapi.org/v2/top-headlines?language=en&sortBy=publishedAt&apiKey=${process.env.NEWS_API_KEY}`)
     .then(response => {
         
         const allArticles = response.data.articles.filter(article => {
