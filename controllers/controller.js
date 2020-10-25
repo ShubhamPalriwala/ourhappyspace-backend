@@ -33,9 +33,7 @@ const positiveNews = (req, res) => {
         })
 
         res.status(200).json({
-            data: {
-                articles: positiveArticlesUnique
-            }
+            articles: positiveArticlesUnique
         })
     })
     .catch(error => {
@@ -68,11 +66,13 @@ const searchNews = (req, res) => {
         const positiveArticlesUnique = positiveArticles.filter((article, index) => {
             return positiveArticles.map(articleObj => articleObj.title).indexOf(article.title) === index
         })
+        
 
         res.status(200).json({
             data: {
                 articles: positiveArticlesUnique
             }
+
         })
     })
     .catch(error => {
